@@ -17,7 +17,7 @@ const Body = () => {
     };
     fetchData();
   }, []);
-//DevanshThakur00007
+
 
     const handleSearch = (query) => {
     if (!query) {
