@@ -5,8 +5,12 @@ import { IoIosLogIn } from "react-icons/io";
 import { FaCartArrowDown } from "react-icons/fa";
 import { SiSwiggy } from "react-icons/si";
 import { Link } from "react-router-dom";
+import {useSelector} from 'react-redux'
 
-function Header({ onSearch }) {
+function Header() {
+
+const cartItems = useSelector((store) => store.cart.items) || [];
+
   return (
     <>
       <nav className="bg-gray-900 text-white text-l flex justify-between px-12 items-center h-20">
@@ -46,7 +50,7 @@ function Header({ onSearch }) {
           
           <div className="flex items-center mx-5 cursor-pointer hover:text-orange-400">
             <FaCartArrowDown color="lightgreen" className="mr-1" />
-            <li>CART</li>
+           <Link to='/cart'> <li>CART - {cartItems.length}</li></Link>
           </div>
         </ul>
       </nav>
